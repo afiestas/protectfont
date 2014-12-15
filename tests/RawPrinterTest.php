@@ -17,9 +17,11 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA   *
  *************************************************************************************/
 
+namespace AFiestas\ProtectFont\Tests;
+
 use AFiestas\ProtectFont\RawPrinter;
 
-class RawPrinterTest extends PHPUnit_Framework_TestCase
+class RawPrinterTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @runInSeparateProcess

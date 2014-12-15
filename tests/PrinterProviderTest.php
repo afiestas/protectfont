@@ -17,10 +17,12 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA   *
  *************************************************************************************/
 
+namespace AFiestas\ProtectFont\Tests;
+
 use AFiestas\ProtectFont\EmptyPrinter;
 use AFiestas\ProtectFont\PrinterProvider;
 
-class PrinterProviderTest extends PHPUnit_Framework_TestCase
+class PrinterProviderTest extends \PHPUnit_Framework_TestCase
 {
     private $sut;
 

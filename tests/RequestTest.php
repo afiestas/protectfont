@@ -17,10 +17,12 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA   *
  *************************************************************************************/
 
+namespace AFiestas\ProtectFont\Tests;
+
 use AFiestas\ProtectFont\Request;
 use AFiestas\ProtectFont\FontNameParser;
 
-class RequestTest extends PHPUnit_Framework_TestCase
+class RequestTest extends \PHPUnit_Framework_TestCase
 {
     private $fontName = 'arial-emojis-css';
 

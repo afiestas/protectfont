@@ -17,9 +17,11 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA   *
  *************************************************************************************/
 
+namespace AFiestas\ProtectFont\Tests;
+
 use AFiestas\ProtectFont\FontLocator;
 
-class FontLocatorTest extends PHPUnit_Framework_TestCase
+class FontLocatorTest extends \PHPUnit_Framework_TestCase
 {
     private $fontName = 'arial-latin-base64';
 

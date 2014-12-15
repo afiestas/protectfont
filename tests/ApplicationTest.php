@@ -17,10 +17,13 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA   *
  *************************************************************************************/
 
+
+namespace AFiestas\ProtectFont\Tests;
+
 use AFiestas\ProtectFont\Application;
 use AFiestas\ProtectFont\FontSettings;
 
-class ApplicationTest extends PHPUnit_Framework_TestCase
+class ApplicationTest extends \PHPUnit_Framework_TestCase
 {
     private $sut;
     private $fontSettings;

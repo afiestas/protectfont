@@ -17,9 +17,11 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA   *
  *************************************************************************************/
 
+namespace AFiestas\ProtectFont\Tests;
+
 use AFiestas\ProtectFont\FontNameParser;
 
-class FontNameParserTest extends PHPUnit_Framework_TestCase
+class FontNameParserTest extends \PHPUnit_Framework_TestCase
 {
     private $fontInfo = array("font" => "arial",
                             "subset" => "full",
