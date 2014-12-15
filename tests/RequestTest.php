@@ -39,6 +39,7 @@ class RequestTest extends PHPUnit_Framework_TestCase
         $sut = new Request($get, $fontNameParser);
 
         $font = $sut->getFont();
+        $this->assertTrue(is_array($font));
     }
 
     public function testGetFontOriginalName()
