@@ -27,6 +27,6 @@ require_once $baseDir . '/vendor/autoload.php';
 use AFiestas\ProtectFont\Application;
 use AFiestas\ProtectFont\FontSettings;
 
-$fontConfig = new FontSettings($baseDir . 'font-settings.json');
+$fontConfig = new FontSettings($baseDir . 'font-settings.json', $_GET);
 $application = new Application();
 $application->run($fontConfig);

@@ -21,11 +21,11 @@ namespace AFiestas\ProtectFont;
 
 class Application
 {
-    public function run($fontSettings)
+    public function run($fontSettings, $getRequest)
     {
         //Parse request and get the font information
-        $request = new Request($_GET);
-        $font = $request->getFont();
+        $request = new Request();
+        $font = $request->getFont($getRequest);
 
         $filter = new Filter($fontSettings);
         $shouldContinue = $filter->filterAccess($font['originalName']);

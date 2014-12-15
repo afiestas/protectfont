@@ -42,7 +42,7 @@ class ApplicationTest extends PHPUnit_Framework_TestCase
     public function testApplicationRunNotExisting()
     {
         $_GET['font'] = 'not existing';
-        $r = $this->sut->run($this->fontSettings);
+        $r = $this->sut->run($this->fontSettings, $_GET['font']);
         $this->expectOutputString(':)');
         $this->assertEquals('font does not exists', $r);
     }
@@ -50,7 +50,7 @@ class ApplicationTest extends PHPUnit_Framework_TestCase
     public function testApplicationRunNoReferer()
     {
         $_GET['font'] = 'arial-laten-raw';
-        $r = $this->sut->run($this->fontSettings);
+        $r = $this->sut->run($this->fontSettings, $_GET['font']);
         $this->expectOutputString(':)');
         $this->assertEquals('font does not exists', $r);
     }
@@ -59,7 +59,7 @@ class ApplicationTest extends PHPUnit_Framework_TestCase
     {
         $_GET['font'] = 'arial-laten-raw';
         $_SERVER['HTTP_REFERER'] = 'foo.bar';
-        $r = $this->sut->run($this->fontSettings);
+        $r = $this->sut->run($this->fontSettings, $_GET['font']);
         $this->expectOutputString(':)');
         $this->assertEquals('font does not exists', $r);
     }
@@ -71,7 +71,7 @@ class ApplicationTest extends PHPUnit_Framework_TestCase
     {
         $_GET['font'] = 'arial-latin-raw';
         $_SERVER['HTTP_REFERER'] = 'test.afiestas.org';
-        $r = $this->sut->run($this->fontSettings);
+        $r = $this->sut->run($this->fontSettings, $_GET['font']);
         $this->expectOutputString('fake font');
         $this->assertEquals(null, $r);
     }
