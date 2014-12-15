@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/afiestas/protectfont.svg?branch=master)](https://travis-ci.org/afiestas/protectfont)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/afiestas/protectfont/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/afiestas/protectfont/?branch=master)
 
 Howto use
