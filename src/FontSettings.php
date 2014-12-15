@@ -21,6 +21,7 @@ namespace AFiestas\ProtectFont;
 
 class FontSettings
 {
+    private $settings;
     function __construct($settingsFile = null)
     {
         $settingsFile = file_get_contents($settingsFile);
