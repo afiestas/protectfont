@@ -34,10 +34,10 @@ class FontNameParser
         if ($length > 2) {
             $subset = $parts[1];
             $method = $parts[2];
-        } else if($length > 1) {
+        } elseif ($length > 1) {
             $method = $parts[1];
         }
 
         return array("font" => $name, "subset" => $subset, "method" => $method);
     }
-};
+}

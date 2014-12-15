@@ -30,11 +30,11 @@ class PrinterProvider
         $basedir = dirname(__FILE__) . '/printers';
 
         $path = realpath($basedir . '/' . $printer . '.php');
-        if(!$path) {
+        if (!$path) {
             return false;
         }
 
-        if(strpos($path, $basedir) !== 0) {
+        if (strpos($path, $basedir) !== 0) {
             return false;
         }
 

@@ -18,4 +18,5 @@
  *************************************************************************************/
 
 use AFiestas\ProtectFont\RawPrinter;
+
 return new RawPrinter();

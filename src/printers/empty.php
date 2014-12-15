@@ -18,4 +18,5 @@
  *************************************************************************************/
 
 use AFiestas\ProtectFont\EmptyPrinter;
+
 return new EmptyPrinter();

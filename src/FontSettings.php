@@ -22,10 +22,11 @@ namespace AFiestas\ProtectFont;
 class FontSettings
 {
     private $settings;
-    function __construct($settingsFile = null)
+
+    public function __construct($settingsFile = null)
     {
-        $settingsFile = file_get_contents($settingsFile);
-        $this->settings = json_decode($settingsFile, true /*assoc*/);
+        $settingsFileData = file_get_contents($settingsFile);
+        $this->settings = json_decode($settingsFileData, true /*assoc*/);
     }
 
     public function fontExists($fontName)

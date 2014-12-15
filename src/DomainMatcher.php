@@ -23,8 +23,8 @@ class DomainMatcher
 {
     public function match($domain, $domainPatterns)
     {
-        foreach($domainPatterns as $pattern) {
-            if (fnmatch($pattern ,$domain)) {
+        foreach ($domainPatterns as $pattern) {
+            if (fnmatch($pattern, $domain)) {
                 return true;
             }
         }
