@@ -21,6 +21,7 @@ namespace AFiestas\ProtectFont;
 
 class FontLocator
 {
+    private $fontSettings;
     function __construct($fontSettings)
     {
         $this->fontSettings = $fontSettings;
