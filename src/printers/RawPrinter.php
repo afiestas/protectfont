@@ -19,9 +19,7 @@
 
 namespace AFiestas\ProtectFont;
 
-require_once dirname(__FILE__) . '/../IPrinter.php';
-
-class RawPrinter implements iPrinter
+class RawPrinter implements IPrinter
 {
     public function printFont($path)
     {

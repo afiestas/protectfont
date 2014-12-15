@@ -19,7 +19,7 @@
 
 namespace AFiestas\ProtectFont;
 
-interface iPrinter
+interface IPrinter
 {
     /**
      * @return void
