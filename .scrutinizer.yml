@@ -1,4 +1,6 @@
 tools:
+  external_code_coverage: true
+
   # PHP Code Coverage
   php_code_coverage:
     enabled: true
