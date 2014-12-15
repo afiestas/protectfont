@@ -27,17 +27,20 @@ class FontLocatorTest extends \PHPUnit_Framework_TestCase
 
     public function testGetFontPath()
     {
-        $GLOBALS['fontPath'] = dirname(__FILE__);
-
         $fontSettings = $this->getMock('FontSettings', array('getFontPath'));
         $fontSettings->expects($this->once())
                         ->method('getFontPath')
                         ->with($this->equalTo($this->fontName))
                         ->willReturn('arialLaten.txt');
 
-        $sut = new FontLocator($fontSettings);
+        $settings = array(
+            'baseDir' => dirname(__FILE__),
+            'fontPath' => dirname(__FILE__)
+        );
+
+        $sut = new FontLocator($settings, $fontSettings);
 
         $font = $sut->getFontPath($this->fontName);
-        $this->assertEquals($font, $GLOBALS['fontPath'] . '/arialLaten.txt');
+        $this->assertEquals($font, $settings['fontPath'] . '/arialLaten.txt');
     }
 }

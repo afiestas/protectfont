@@ -19,14 +19,16 @@
 
 $baseDir = realpath(dirname(__FILE__) . '/../') . '/';
 
-$GLOBALS['baseDir'] = $baseDir;
-$GLOBALS['fontPath'] = $baseDir . '/superSecretFolder/';
-
 require_once $baseDir . '/vendor/autoload.php';
 
 use AFiestas\ProtectFont\Application;
 use AFiestas\ProtectFont\FontSettings;
 
+$settings = array(
+    'baseDir' => $baseDir,
+    'fontPath' => $baseDir . '/superSecretFolder/'
+);
+
 $fontConfig = new FontSettings($baseDir . 'font-settings.json');
-$application = new Application();
-$application->run($fontConfig, $_GET);
+$application = new Application($settings, $fontConfig);
+$application->run($_GET);

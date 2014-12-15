@@ -21,16 +21,18 @@ namespace AFiestas\ProtectFont;
 
 class FontLocator
 {
+    private $settings;
     private $fontSettings;
 
-    public function __construct($fontSettings)
+    public function __construct($settings, $fontSettings)
     {
+        $this->settings = $settings;
         $this->fontSettings = $fontSettings;
     }
 
     public function getFontPath($fontName)
     {
         $fontPath = $this->fontSettings->getFontPath($fontName);
-        return realpath($GLOBALS["fontPath"] . '/' . $fontPath);
+        return realpath($this->settings["fontPath"] . '/' . $fontPath);
     }
 }

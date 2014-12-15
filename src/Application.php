@@ -21,13 +21,22 @@ namespace AFiestas\ProtectFont;
 
 class Application
 {
-    public function run($fontSettings, $getRequest)
+    private $settings;
+    private $fontSettings;
+
+    public function __construct($settings, $fontSettings)
+    {
+        $this->settings = $settings;
+        $this->fontSettings = $fontSettings;
+    }
+
+    public function run($getRequest)
     {
         //Parse request and get the font information
         $request = new Request($getRequest);
         $font = $request->getFont();
 
-        $filter = new Filter($fontSettings);
+        $filter = new Filter($this->fontSettings);
         $shouldContinue = $filter->filterAccess($font['originalName']);
         if (!$shouldContinue) {
             echo ':)';
@@ -35,7 +44,7 @@ class Application
         }
 
         //Get the actual file
-        $fontLocator = new FontLocator($fontSettings);
+        $fontLocator = new FontLocator($this->settings, $this->fontSettings);
         $fontPath = $fontLocator->getFontPath($font['originalName']);
 
         $printerProvider = new PrinterProvider();
