@@ -27,10 +27,10 @@ class Request
     private $query = null;
     private $fontNameParser;
 
-    function __construct($query = null, $fontNameParser = null)
+    public function __construct($query, $fontNameParser = null)
     {
+        $this->query = $query;
         $this->fontNameParser = $fontNameParser ? $fontNameParser : new FontNameParser();
-        $this->query = $query ? $query : $_GET;
     }
 
     public function getFont()

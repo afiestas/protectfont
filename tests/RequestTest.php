@@ -17,9 +17,6 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA   *
  *************************************************************************************/
 
-$baseDir = dirname(dirname(__FILE__));
-require_once  $baseDir . '/vendor/autoload.php';
-
 use AFiestas\ProtectFont\Request;
 use AFiestas\ProtectFont\FontNameParser;
 

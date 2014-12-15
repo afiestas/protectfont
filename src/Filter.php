@@ -25,7 +25,7 @@ class Filter
     private $domainMatcher;
     private $lastFiltered = '';
 
-    function __construct($fontSettings, $domainMatcher = null)
+    public function __construct($fontSettings, $domainMatcher = null)
     {
         $this->fontSettings = $fontSettings;
         $this->domainMatcher = $domainMatcher ? $domainMatcher : new DomainMatcher();

@@ -17,9 +17,6 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA   *
  *************************************************************************************/
 
-$baseDir = dirname(dirname(__FILE__));
-require_once  $baseDir . '/vendor/autoload.php';
-
 use AFiestas\ProtectFont\Application;
 use AFiestas\ProtectFont\FontSettings;
 
@@ -41,25 +38,25 @@ class ApplicationTest extends PHPUnit_Framework_TestCase
 
     public function testApplicationRunNotExisting()
     {
-        $_GET['font'] = 'not existing';
-        $r = $this->sut->run($this->fontSettings, $_GET['font']);
+        $request = array('font' => 'not existing');
+        $r = $this->sut->run($this->fontSettings, $request);
         $this->expectOutputString(':)');
         $this->assertEquals('font does not exists', $r);
     }
 
     public function testApplicationRunNoReferer()
     {
-        $_GET['font'] = 'arial-laten-raw';
-        $r = $this->sut->run($this->fontSettings, $_GET['font']);
+        $request = array('font' => 'arial-laten-raw');
+        $r = $this->sut->run($this->fontSettings, $request);
         $this->expectOutputString(':)');
         $this->assertEquals('font does not exists', $r);
     }
 
     public function testApplicationDomainNotWhitelist()
     {
-        $_GET['font'] = 'arial-laten-raw';
+        $request = array('font' => 'arial-laten-raw');
         $_SERVER['HTTP_REFERER'] = 'foo.bar';
-        $r = $this->sut->run($this->fontSettings, $_GET['font']);
+        $r = $this->sut->run($this->fontSettings, $request);
         $this->expectOutputString(':)');
         $this->assertEquals('font does not exists', $r);
     }
@@ -69,9 +66,9 @@ class ApplicationTest extends PHPUnit_Framework_TestCase
      */
     public function testApplication()
     {
-        $_GET['font'] = 'arial-latin-raw';
+        $request = array('font' => 'arial-latin-raw');
         $_SERVER['HTTP_REFERER'] = 'test.afiestas.org';
-        $r = $this->sut->run($this->fontSettings, $_GET['font']);
+        $r = $this->sut->run($this->fontSettings, $request);
         $this->expectOutputString('fake font');
         $this->assertEquals(null, $r);
     }

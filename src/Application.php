@@ -24,8 +24,8 @@ class Application
     public function run($fontSettings, $getRequest)
     {
         //Parse request and get the font information
-        $request = new Request();
-        $font = $request->getFont($getRequest);
+        $request = new Request($getRequest);
+        $font = $request->getFont();
 
         $filter = new Filter($fontSettings);
         $shouldContinue = $filter->filterAccess($font['originalName']);
