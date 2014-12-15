@@ -1,0 +1,33 @@
+{
+    "breeze-full-*": {
+        "path": "breeze-full.ttf",
+        "domains": [
+            "*.afiestas.es",
+            "e-lena.es"
+        ]
+    },
+    "breeze-full-css": {
+        "path": "breeze-full.ttf",
+        "domains": [
+            "*"
+        ]
+    },
+    "breeze-emojis-raw": {
+        "path": "breeze-emojis.ttf",
+        "domains": [
+            "*.octavio.*"
+        ]
+    },
+    "arial-latin-base64": {
+        "path": "arialLaten.txt",
+        "domains": [
+            "*.afiestas.*"
+        ]
+    },
+    "arial-latin-raw": {
+        "path": "arialLaten.txt",
+        "domains": [
+            "*.afiestas.*"
+        ]
+    }
+}

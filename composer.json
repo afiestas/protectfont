@@ -1,0 +1,24 @@
+{
+    "name": "afiestas/protectfont",
+    "description": "A small script to protect against people ilegaly using fonts",
+    "keywords": ["fonts", "protect", "typeface"],
+    "homepage": "http://www.afiestas.org",
+    "license": "Private",
+    "authors": [
+        {
+            "name": "Alejandro Fiestas",
+            "email": "afiestas@kde.org"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.10"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.3.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "AFiestas\\ProtectFont\\": ["src/", "src/printers"]
+        }
+    }
+}

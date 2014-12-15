@@ -1,0 +1,9 @@
+/**
+ * Some license that does not allow you to use this font
+ * Highly privative
+ */
+
+@font-face {
+    font-family: "arialLaten";
+    src: url("data:text/plain;base64,ZmFrZSBmb250");
+}

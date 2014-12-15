@@ -1,0 +1,6 @@
+{license}
+
+@font-face {
+    font-family: "{filename}";
+    src: url("data:{mime};base64,{base64}");
+}
