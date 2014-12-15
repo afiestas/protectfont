@@ -20,5 +20,8 @@
 namespace AFiestas\ProtectFont;
 interface iPrinter
 {
+    /**
+     * @return void
+     */
     public function printFont($path);
 }
