@@ -31,4 +31,4 @@ $settings = array(
 
 $fontConfig = new FontSettings($baseDir . 'font-settings.json');
 $application = new Application($settings, $fontConfig);
-$application->run($_GET);
+$application->run($_GET, $_SERVER);

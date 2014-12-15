@@ -45,16 +45,16 @@ class Filter
         return true;
     }
 
-    public function filterAccessByRefererExists()
+    public function filterAccessByRefererExists($serverRequest)
     {
-        if (array_key_exists('HTTP_REFERER', $_SERVER) && empty($_SERVER['HTTP_REFERER'])) {
+        if (array_key_exists('HTTP_REFERER', $serverRequest) && empty($serverRequest['HTTP_REFERER'])) {
             $this->lastFiltered = 'no http referer';
             return false;
         }
         return true;
     }
 
-    public function filterAccessByDomains($fontName)
+    public function filterAccessByDomains($fontName, $serverRequest)
     {
         $domains = $this->fontSettings->getFontDomains($fontName);
         if (empty($domains)) {
@@ -62,18 +62,18 @@ class Filter
             return false;
         }
 
-        if (!$this->domainMatcher->match($_SERVER['HTTP_REFERER'], $domains)) {
+        if (!$this->domainMatcher->match($serverRequest['HTTP_REFERER'], $domains)) {
             $this->lastFiltered = 'Domain not whitelisted';
             return false;
         }
         return true;
     }
 
-    public function filterAccess($fontName)
+    public function filterAccess($fontName, $serverRequest)
     {
-        if (!$this->filterAccessByRefererExists() ||
+        if (!$this->filterAccessByRefererExists($serverRequest) ||
             !$this->filterAccessByFontExists($fontName) ||
-            !$this->filterAccessByDomains($fontName)) {
+            !$this->filterAccessByDomains($fontName, $serverRequest)) {
             return false;
         }
 

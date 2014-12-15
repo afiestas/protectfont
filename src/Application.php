@@ -30,14 +30,14 @@ class Application
         $this->fontSettings = $fontSettings;
     }
 
-    public function run($getRequest)
+    public function run($getRequest, $serverRequest)
     {
         //Parse request and get the font information
         $request = new Request($getRequest);
         $font = $request->getFont();
 
         $filter = new Filter($this->fontSettings);
-        $shouldContinue = $filter->filterAccess($font['originalName']);
+        $shouldContinue = $filter->filterAccess($font['originalName'], $serverRequest);
         if (!$shouldContinue) {
             echo ':)';
             return $filter->lastFiltered();

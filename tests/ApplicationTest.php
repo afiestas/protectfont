@@ -43,7 +43,8 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
     public function testApplicationRunNotExisting()
     {
         $request = array('font' => 'not existing');
-        $r = $this->sut->run($request);
+        $server = array();
+        $r = $this->sut->run($request, $server);
         $this->expectOutputString(':)');
         $this->assertEquals('font does not exists', $r);
     }
@@ -51,7 +52,8 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
     public function testApplicationRunNoReferer()
     {
         $request = array('font' => 'arial-laten-raw');
-        $r = $this->sut->run($request);
+        $server = array();
+        $r = $this->sut->run($request, $server);
         $this->expectOutputString(':)');
         $this->assertEquals('font does not exists', $r);
     }
@@ -59,8 +61,8 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
     public function testApplicationDomainNotWhitelist()
     {
         $request = array('font' => 'arial-laten-raw');
-        $_SERVER['HTTP_REFERER'] = 'foo.bar';
-        $r = $this->sut->run($request);
+        $server = array('HTTP_REFERER' => 'foo.bar');
+        $r = $this->sut->run($request, $server);
         $this->expectOutputString(':)');
         $this->assertEquals('font does not exists', $r);
     }
@@ -71,8 +73,8 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
     public function testApplication()
     {
         $request = array('font' => 'arial-latin-raw');
-        $_SERVER['HTTP_REFERER'] = 'test.afiestas.org';
-        $r = $this->sut->run($request);
+        $server = array('HTTP_REFERER' => 'test.afiestas.org');
+        $r = $this->sut->run($request, $server);
         $this->expectOutputString('fake font');
         $this->assertEquals(null, $r);
     }

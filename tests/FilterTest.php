@@ -59,8 +59,8 @@ class FilterTest extends \PHPUnit_Framework_TestCase
 
     public function testFilterAccessByRefererExists()
     {
-        $_SERVER['HTTP_REFERER'] = '';
-        $result = $this->sut->filterAccessByRefererExists();
+        $serverRequest = array('HTTP_REFERER' => '');
+        $result = $this->sut->filterAccessByRefererExists($serverRequest);
         $this->assertFalse($result, 'Access should be denied because there is no http referer');
     }
 
@@ -74,13 +74,13 @@ class FilterTest extends \PHPUnit_Framework_TestCase
                             ->willReturn($domainList);
 
         $domain = 'afiestas.org';
-        $_SERVER['HTTP_REFERER'] = $domain;
+        $serverRequest = array('HTTP_REFERER' => $domain);
         $this->domainMatcher->expects($this->once())
                             ->method('match')
                             ->with($domain, $domainList);
 
 
-        $result = $this->sut->filterAccessByDomains($fontName);
+        $result = $this->sut->filterAccessByDomains($fontName, $serverRequest);
         $this->assertFalse($result, 'Access should be denied because the font has no domains');
 
         
